@@ -1,15 +1,15 @@
-const { deflateRaw } = require("zlib")
+import { update as updateSnake, draw as drawSnake, SNAKE_SPEED } from "./snake.js"
 
 let lastRenderTime = 0
-const SNAKE_SPEED = 2
+const gameBoard = document.getElementById('game-board')
+console.log(gameBoard)
 
 function main(currentTime) {
     window.requestAnimationFrame(main)
-    const secondsSineLastRender = (currentTime - lastRenderTime) / 1000
-    if (secondsSineLastRender < 1 / SNAKE_SPEED) return
+    const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000
+    if (secondsSinceLastRender < 1 / SNAKE_SPEED) return
     
     lastRenderTime = currentTime
-    console.log('render')
 
     update()
     draw()
@@ -17,4 +17,15 @@ function main(currentTime) {
 
 window.requestAnimationFrame(main)
 
+
+
+function update() {
+    updateSnake()
+}
+
+
+
+function draw() {
+    drawSnake(gameBoard)
+}
 
