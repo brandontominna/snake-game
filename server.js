@@ -5,7 +5,7 @@ const path = require('path');
 const port = 8000;
 
 const server = http.createServer((req, res) => {
-  const filePath = path.join(__dirname, 'index.html'); // Use 'index.html' as your HTML file name
+  const filePath = path.join(__dirname, 'index.html'); 
   fs.readFile(filePath, (err, data) => {
     if (err) {
       res.writeHead(404, { 'Content-Type': 'text/html' });
@@ -22,4 +22,6 @@ server.listen(port, () => {
 });
 
 
+// possible to use express here for a more clean/concise server, 
+// since the project is just a small snake game, not really necessary to have extra stuff for the deployment process. 
 
