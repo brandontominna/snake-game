@@ -9,3 +9,14 @@ export function getRandomGridPosition() {
     }
 }
 
+
+export function outsideGrid(position) {
+    if(position.x < 1 || position.x > GRID_SIZE) {
+        return true
+    }
+    if(position.y < 1 || position.y > GRID_SIZE) {
+        return true
+    }
+
+    return false
+}
