@@ -1,22 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snake</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="game.js" defer type="module"></script>
-    <script src='menu/menu.js' defer></script>
+    <title>Snake Game</title>
+    <link rel="stylesheet" type="text/css" href="./css/start.css">
 </head>
 <body>
-    <div id="menu">
-        <h1>Menu</h1>
-        <label for="snakeSpeed">Snake Speed:</label>
-        <select id="snakeSpeed"></select>
+    <div id="startPage">
+        <h1>Welcome to Snake Game</h1>
+        <button id="startButton">Start</button>
     </div>
-    <div id="game-board"></div>
+
+    <script src="js/game/game.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="start.js"></script>
 </body>
 </html>
-
-
-
