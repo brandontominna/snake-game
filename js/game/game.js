@@ -14,7 +14,7 @@ let lastRenderTime = 0;
 const gameBoard = document.getElementById("game-board");
 let gameOver = false;
 
-const rocksAndFlowers = createElements(10, 10)
+const rocksAndFlowers = createElements(5, 10, 8)
 
 function main(currentTime) {
   if (gameOver) {

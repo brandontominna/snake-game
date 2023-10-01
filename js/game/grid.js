@@ -62,7 +62,7 @@ export function drawBorderRows(gameBoard) {
 
 
   
-  export function createElements(numRocks, numFlowers) {
+  export function createElements(numRocks, numFlowers, numFlowers2) {
     const elements = [];
   
     for (let i = 0; i < numRocks; i++) {
@@ -74,6 +74,12 @@ export function drawBorderRows(gameBoard) {
       const flowerPosition = getRandomGridPosition();
       elements.push({ x: flowerPosition.x, y: flowerPosition.y, type: "flower" });
     }
+
+    for (let i = 0; i < numFlowers2; i++) {
+      const flowerPosition2 = getRandomGridPosition();
+      elements.push({ x: flowerPosition2.x, y: flowerPosition2.y, type: "flower2" });
+    }
+  
   
     return elements;
   }
@@ -83,8 +89,13 @@ export function drawRocksAndFlowers(gameBoard, elements) {
     const { x, y, type } = element;
     const cell = document.createElement("div");
 
-    // Add appropriate class and style based on element type (rock or flower)
-    cell.classList.add(type === "rock" ? "rockCell" : "flowerCell");
+    if (type === "rock") {
+      cell.classList.add("rockCell");
+    } else if (type === "flower") {
+      cell.classList.add("flowerCell");
+    } else if (type === "flower2") {
+      cell.classList.add("flower2Cell");
+    }
 
     // Set the grid position for the element
     cell.style.gridRow = `${y} / span 1`;

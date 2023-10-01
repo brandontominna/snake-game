@@ -28,3 +28,4 @@ function getRandomFoodPosition() {
   console.log(`${newFoodPosition.x}, ${newFoodPosition.y}`)
   return newFoodPosition;
 }
+
