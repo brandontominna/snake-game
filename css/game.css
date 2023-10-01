@@ -5,11 +5,11 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0;
-  background-color: black;
+  background-color: white;
 }
 
 #game-board {
-  background-color: #ccc;
+  background-color: #99D025;
   width: 100vmin;
   height: 100vmin;
   display: grid;
@@ -27,5 +27,25 @@ body {
   background-color: hsl(50, 100%, 50%);
   border: 0.25vmin solid black;
   caret-color: transparent;
+}
+
+.bottomCell {
+  background-image: url('../images/fence-horizontal2.png');
+  background-size: cover; /* Scale the image to cover the entire cell */
+}
+
+.topCell {
+    background-image: url('../images/fence-horizontal2.png');
+    background-size: cover; /* Scale the image to cover the entire cell */
+}
+
+.rightCell {
+  background-image: url('../images/fence-vertical.png');
+  background-size: cover; /* Scale the image to cover the entire cell */
+}
+
+.leftCell {
+  background-image: url('../images/fence-vertical.png');
+  background-size: cover; /* Scale the image to cover the entire cell */
 }
 

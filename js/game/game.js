@@ -6,7 +6,7 @@ import {
 
 import { update as updateFood, draw as drawFood } from "./food.js";
 
-import { outsideGrid } from "./grid.js";
+import { outsideGrid, drawBorderRows } from "./grid.js";
 import { snakeIntersection } from "./snake.js";
 import { getSnakeHead } from "./snake.js";
 
@@ -41,11 +41,20 @@ function update() {
 }
 
 function draw() {
-  gameBoard.innerHTML = "";
+  gameBoard.innerHTML = ""; // Clear the game board
+
+  // Draw the snake and food on the remaining grid cells
   drawSnake(gameBoard);
   drawFood(gameBoard);
+
+  drawBorderRows(gameBoard)
 }
+
+
 
 function checkDeath() {
   gameOver = outsideGrid(getSnakeHead()) || snakeIntersection();
 }
+
+
+
