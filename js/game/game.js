@@ -6,13 +6,15 @@ import {
 
 import { update as updateFood, draw as drawFood } from "./food.js";
 
-import { outsideGrid, drawBorderRows } from "./grid.js";
+import { outsideGrid, drawBorderRows, drawRocksAndFlowers, createElements } from "./grid.js";
 import { snakeIntersection } from "./snake.js";
 import { getSnakeHead } from "./snake.js";
 
 let lastRenderTime = 0;
 const gameBoard = document.getElementById("game-board");
 let gameOver = false;
+
+const rocksAndFlowers = createElements(10, 10)
 
 function main(currentTime) {
   if (gameOver) {
@@ -28,8 +30,12 @@ function main(currentTime) {
 
   lastRenderTime = currentTime;
 
+
+  
   update();
   draw();
+
+
 }
 
 window.requestAnimationFrame(main);
@@ -39,17 +45,14 @@ function update() {
   updateFood();
   checkDeath();
 }
-
 function draw() {
-  gameBoard.innerHTML = ""; // Clear the game board
-
-  // Draw the snake and food on the remaining grid cells
-  drawSnake(gameBoard);
+  gameBoard.innerHTML = "";
+  
   drawFood(gameBoard);
-
-  drawBorderRows(gameBoard)
+  drawSnake(gameBoard);
+  drawBorderRows(gameBoard);
+  drawRocksAndFlowers(gameBoard, rocksAndFlowers);
 }
-
 
 
 function checkDeath() {
