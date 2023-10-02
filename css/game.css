@@ -24,6 +24,7 @@ body {
   z-index: 0;
 }
 
+
 .food {
   background-image: url('../images/output-onlinegiftools.gif');
   background-size: cover;
@@ -71,3 +72,6 @@ background-size: cover;
   background-image: url('../images/flower2.png');
   background-size: cover;
 }
+
+
+

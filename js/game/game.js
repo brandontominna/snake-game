@@ -16,6 +16,7 @@ let gameOver = false;
 
 const rocksAndFlowers = createElements(5, 10, 8)
 
+
 function main(currentTime) {
   if (gameOver) {
     if (confirm("You lost, press ok to restart")) {
@@ -29,8 +30,6 @@ function main(currentTime) {
   if (secondsSinceLastRender < 1 / SNAKE_SPEED) return;
 
   lastRenderTime = currentTime;
-
-
   
   update();
   draw();
