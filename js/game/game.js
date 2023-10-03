@@ -2,61 +2,55 @@ import {
   update as updateSnake,
   draw as drawSnake,
   SNAKE_SPEED,
+  getSnakeHead,
+  snakeIntersection
 } from "./snake.js";
 
 import { update as updateFood, draw as drawFood } from "./food.js";
 
 import { outsideGrid, drawBorderRows, drawRocksAndFlowers, createElements } from "./grid.js";
-import { snakeIntersection } from "./snake.js";
-import { getSnakeHead } from "./snake.js";
 
 let lastRenderTime = 0;
 const gameBoard = document.getElementById("game-board");
-let gameOver = false;
+let gameIsOver = false;
 
-const rocksAndFlowers = createElements(5, 10, 8)
+const environmentElements = createElements(5, 10, 8)
 
-
-function main(currentTime) {
-  if (gameOver) {
+function gameLoop(currentTime) {
+  if (gameIsOver) {
     if (confirm("You lost, press ok to restart")) {
-      window.location = "../index.html";
+      window.location = "/"; 
     }
     return;
   }
 
-  window.requestAnimationFrame(main);
-  const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000;
-  if (secondsSinceLastRender < 1 / SNAKE_SPEED) return;
+  window.requestAnimationFrame(gameLoop);
+  const secondsPassedSinceLastRender = (currentTime - lastRenderTime) / 1000;
+  if (secondsPassedSinceLastRender < 1 / SNAKE_SPEED) return;
 
   lastRenderTime = currentTime;
-  
-  update();
-  draw();
 
-
+  updateGame();
+  renderGame();
 }
 
-window.requestAnimationFrame(main);
+window.requestAnimationFrame(gameLoop);
 
-function update() {
+function updateGame() {
   updateSnake();
   updateFood();
-  checkDeath();
+  checkGameOver();
 }
-function draw() {
+
+function renderGame() {
   gameBoard.innerHTML = "";
-  
+
   drawFood(gameBoard);
   drawSnake(gameBoard);
   drawBorderRows(gameBoard);
-  drawRocksAndFlowers(gameBoard, rocksAndFlowers);
+  drawRocksAndFlowers(gameBoard, environmentElements);
 }
 
-
-function checkDeath() {
-  gameOver = outsideGrid(getSnakeHead()) || snakeIntersection();
+function checkGameOver() {
+  gameIsOver = outsideGrid(getSnakeHead()) || snakeIntersection();
 }
-
-
-

@@ -8,14 +8,16 @@ export function update() {
   if (onSnake(food)) {
     expandSnake(EXPANSION_RATE);
     food = getRandomFoodPosition();
+    const foodElement = document.getElementById('food');
+    foodElement.style.backgroundImage = `url('../images/meme.gif?${Math.random()}')`;
   }
 }
 
+const foodElement = document.getElementById('food');
+
 export function draw(gameBoard) {
-  const foodElement = document.createElement("div");
   foodElement.style.gridRowStart = food.y;
   foodElement.style.gridColumnStart = food.x;
-  foodElement.classList.add("food");
   gameBoard.appendChild(foodElement);
 }
 
@@ -28,4 +30,3 @@ function getRandomFoodPosition() {
   
   return newFoodPosition;
 }
-

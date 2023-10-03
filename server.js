@@ -1,13 +1,15 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const url = require('url');
 
 const port = 8000;
 
 const server = http.createServer((req, res) => {
-  // Get the requested file path based on the URL
-  const url = req.url === '/' ? '/index.html' : req.url;
-  const filePath = path.join(__dirname, url);
+  // Parse the URL to get the pathname
+  const parsedUrl = url.parse(req.url);
+  const pathname = parsedUrl.pathname === '/' ? '/index.html' : parsedUrl.pathname;
+  const filePath = path.join(__dirname, pathname);
 
   // Determine the content type based on the file extension
   const extname = path.extname(filePath);
@@ -19,6 +21,9 @@ const server = http.createServer((req, res) => {
       break;
     case '.css':
       contentType = 'text/css';
+      break;
+    case '.gif':
+      contentType = 'image/gif';
       break;
     // Add more cases for other file types as needed
   }

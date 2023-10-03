@@ -32,6 +32,13 @@ body {
   z-index: 3;
 }
 
+.food-eaten {
+  background-image: url('../images/meme.gif');
+  background-size: cover;
+  caret-color: transparent;
+  z-index: 3;
+}
+
 
 .bottomCell {
   background-image: url('../images/fence-horizontal2.png');
