@@ -1,12 +1,17 @@
 const GRID_SIZE = 20;
 
+// random function needs to be altered to avoid the borders
+// because the random food function uses this, it also needs to avoid borders
+// and for food to not spawn on fences, grid size must be 20 (avoiding the initial columns/rows)
 export function getRandomGridPosition() {
-  const x = Math.floor(Math.random() * (GRID_SIZE - 1)) + 2; 
-  const y = Math.floor(Math.random() * (GRID_SIZE - 1)) + 2; 
-  return { x, y };
+  return {
+    x: Math.floor(Math.random() * (GRID_SIZE - 1)) + 2,
+    y: Math.floor(Math.random() * (GRID_SIZE - 1)) + 2
+  }
 }
 
-
+// function to detect if coordinates are outside the grid, 
+// with static and dynamic elements added and their double grids, this needs to be 2 not 1
 export function outsideGrid(position) {
   if (position.x < 2 || position.x > GRID_SIZE) {
     return true;
@@ -17,6 +22,8 @@ export function outsideGrid(position) {
   return false;
 }
 
+// function rendered only once when app starts, 
+// loops through first column and row/ borders, creates an element and adds the class 
 export function drawBorderRows(gameBoard) {
   const numRows = 21;
   const numCols = 21;
@@ -56,7 +63,7 @@ export function drawBorderRows(gameBoard) {
 
 
 
-  
+// swapping function to randomly generate positions
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -64,6 +71,9 @@ function shuffleArray(array) {
   }
 }
 
+// function to create the actual elements, 2 arrays initialized, 
+// first all positions are pushed onto the positions array, then given a random order
+// loops run for the input amount of element, where the positions and types are assigned 
 export function createElements(numGrass, numFlowers, numGrass2) {
   const elements = [];
   const positions = [];
@@ -89,7 +99,10 @@ export function createElements(numGrass, numFlowers, numGrass2) {
   return elements;
 }
 
-export function drawRocksAndFlowers(gameBoard, elements) {
+// function that draws the elements, loops through elements array, 
+// for each element checks position and type, 
+// depending on type a unique class is added, and positions are applied on the grid. 
+export function drawGrassAndFlowers(gameBoard, elements) {
   elements.forEach((element) => {
     const { x, y, type } = element;
     const cell = document.createElement("div");
@@ -110,4 +123,6 @@ export function drawRocksAndFlowers(gameBoard, elements) {
 }
 
 
+// currently grass and flowers and dynamically and randomly rendered, 
+// subject to change to imporve performance or not if more background types can be added
 

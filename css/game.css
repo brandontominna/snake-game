@@ -5,7 +5,7 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0;
-  background-color: #99D025;
+  background-color: #99d025;
   z-index: 0;
 }
 
@@ -20,59 +20,55 @@ body {
   z-index: 1;
 }
 
-
 .food {
-  background-image: url('../images/output-onlinegiftools.gif');
+  background-image: url("../images/output-onlinegiftools.gif");
   background-size: cover;
   caret-color: transparent;
   z-index: 3;
 }
 
-
-
 .bottomCell {
-  background-image: url('../images/newfenceH.png');
-  background-color: #8E9E3E;
+  background-image: url("../images/newfenceH.png");
+  background-color: #8e9e3e;
   background-size: cover; /* Scale the image to cover the entire cell */
   z-index: 1;
 }
 
 .topCell {
-    background-image: url('../images/newfenceH.png');
-    background-color: #8E9E3E;
-    background-size: cover; /* Scale the image to cover the entire cell */
-    z-index: 1;
-  }
+  background-image: url("../images/newfenceH.png");
+  background-color: #8e9e3e;
+  background-size: cover; /* Scale the image to cover the entire cell */
+  z-index: 1;
+}
 
 .rightCell {
-  background-image: url('../images/newFenceV.png');
-  background-color: #8E9E3E;
+  background-image: url("../images/newFenceV.png");
+  background-color: #8e9e3e;
   background-size: cover; /* Scale the image to cover the entire cell */
   z-index: 1;
 }
 
 .leftCell {
-  background-image: url('../images/newFenceV.png');
-  background-color: #8E9E3E;
+  background-image: url("../images/newFenceV.png");
+  background-color: #8e9e3e;
   background-size: cover; /* Scale the image to cover the entire cell */
   z-index: 1;
 }
 
-
 .grassCell {
-background-image: url('../images/grass.gif');
-background-size: cover;
-z-index: 0;
+  background-image: url("../images/grass.gif");
+  background-size: cover;
+  z-index: 0;
 }
 
 .flowerCell {
-  background-image: url('../images/flower1.gif');
+  background-image: url("../images/flower1.gif");
   background-size: cover;
   z-index: 0;
 }
 
 .grass2Cell {
-  background-image: url('../images/grass2.png');
+  background-image: url("../images/grass2.png");
   background-size: cover;
   transform: scaleX(-1);
   z-index: 0;
@@ -100,7 +96,7 @@ z-index: 0;
 }
 
 #dynamic-elements {
-  background-color: #8E9E3E;
+  background-color: #8e9e3e;
   width: 100vmin;
   height: 100vmin;
   display: grid;
@@ -109,7 +105,7 @@ z-index: 0;
 }
 
 #static-elements {
-  background-color: #8E9E3E;
+  background-color: #8e9e3e;
   width: 100vmin;
   height: 100vmin;
   display: grid;
