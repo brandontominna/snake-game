@@ -14,7 +14,7 @@ let lastRenderTime = 0;
 const gameBoard = document.getElementById("game-board");
 let gameIsOver = false;
 
-const environmentElements = createElements(5, 10, 8)
+const environmentElements = createElements(50, 15, 50)
 
 function gameLoop(currentTime) {
   if (gameIsOver) {

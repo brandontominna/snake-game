@@ -9,7 +9,7 @@ body {
 }
 
 #game-board {
-  background-color: #99D025;
+  background-color: #8E9E3E;
   width: 100vmin;
   height: 100vmin;
   display: grid;
@@ -21,7 +21,7 @@ body {
   background-color: hsl(200, 100%, 50%);
   border: 0.25vmin solid black;
   caret-color: transparent;
-  z-index: 0;
+  z-index: 1;
 }
 
 
@@ -32,52 +32,54 @@ body {
   z-index: 3;
 }
 
-.food-eaten {
-  background-image: url('../images/meme.gif');
-  background-size: cover;
-  caret-color: transparent;
-  z-index: 3;
-}
 
 
 .bottomCell {
-  background-image: url('../images/fence-horizontal2.png');
+  background-image: url('../images/newfenceH.png');
+  background-color: #8E9E3E;
   background-size: cover; /* Scale the image to cover the entire cell */
   z-index: 1;
 }
 
 .topCell {
-    background-image: url('../images/fence-horizontal2.png');
+    background-image: url('../images/newfenceH.png');
+    background-color: #8E9E3E;
     background-size: cover; /* Scale the image to cover the entire cell */
     z-index: 1;
   }
 
 .rightCell {
-  background-image: url('../images/fence-vertical.png');
+  background-image: url('../images/newFenceV.png');
+  background-color: #8E9E3E;
   background-size: cover; /* Scale the image to cover the entire cell */
   z-index: 1;
 }
 
 .leftCell {
-  background-image: url('../images/fence-vertical.png');
+  background-image: url('../images/newFenceV.png');
+  background-color: #8E9E3E;
   background-size: cover; /* Scale the image to cover the entire cell */
   z-index: 1;
 }
 
 
-.rockCell {
-background-image: url('../images/rock.png');
+.grassCell {
+background-image: url('../images/grass.gif');
 background-size: cover;
+z-index: 0;
 }
 
 .flowerCell {
-  background-image: url('../images/flower.png');
+  background-image: url('../images/flower1.gif');
   background-size: cover;
+  z-index: 0;
 }
 
-.flower2Cell {
-  background-image: url('../images/flower2.png');
+.grass2Cell {
+  background-image: url('../images/grass2.png');
   background-size: cover;
+  transform: scaleX(-1);
+  z-index: 0;
 }
 
 

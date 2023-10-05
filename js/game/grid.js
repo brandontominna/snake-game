@@ -1,8 +1,8 @@
 const GRID_SIZE = 20;
 
 export function getRandomGridPosition() {
-  const x = Math.floor(Math.random() * (GRID_SIZE - 2)) + 2; // Exclude the first and last columns
-  const y = Math.floor(Math.random() * (GRID_SIZE - 2)) + 2; // Exclude the first and last rows
+  const x = Math.floor(Math.random() * (GRID_SIZE - 1)) + 2; // Exclude the first and last columns
+  const y = Math.floor(Math.random() * (GRID_SIZE - 1)) + 2; // Exclude the first and last rows
   return { x, y };
 }
 
@@ -43,7 +43,6 @@ export function drawBorderRows(gameBoard) {
   for (let row = 2; row < numRows; row++) {
     const rightCell = document.createElement("div");
     rightCell.classList.add("rightCell");
-    rightCell.style.backgroundColor = "yellow";
     rightCell.style.gridRow = `${row} / span 1`;
     rightCell.style.gridColumn = `${numCols} / span 1`;
     gameBoard.appendChild(rightCell);
@@ -62,39 +61,52 @@ export function drawBorderRows(gameBoard) {
 
 
   
-  export function createElements(numRocks, numFlowers, numFlowers2) {
-    const elements = [];
-  
-    for (let i = 0; i < numRocks; i++) {
-      const rockPosition = getRandomGridPosition();
-      elements.push({ x: rockPosition.x, y: rockPosition.y, type: "rock" });
-    }
-  
-    for (let i = 0; i < numFlowers; i++) {
-      const flowerPosition = getRandomGridPosition();
-      elements.push({ x: flowerPosition.x, y: flowerPosition.y, type: "flower" });
-    }
-
-    for (let i = 0; i < numFlowers2; i++) {
-      const flowerPosition2 = getRandomGridPosition();
-      elements.push({ x: flowerPosition2.x, y: flowerPosition2.y, type: "flower2" });
-    }
-  
-  
-    return elements;
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
   }
+}
+
+export function createElements(numGrass, numFlowers, numGrass2) {
+  const elements = [];
+  const positions = [];
+
+  // Generate all possible positions
+  for (let x = 2; x <= GRID_SIZE; x++) {
+    for (let y = 2; y <= GRID_SIZE; y++) {
+      positions.push({ x, y });
+    }
+  }
+
+  // Randomize the order of the positions
+  shuffleArray(positions);
+
+  // Add elements at the first n positions
+  for (let i = 0; i < numGrass; i++) {
+    elements.push({ ...positions[i], type: "grass" });
+  }
+  for (let i = numGrass; i < numGrass + numFlowers; i++) {
+    elements.push({ ...positions[i], type: "flower" });
+  }
+  for (let i = numGrass + numFlowers; i < numGrass + numFlowers + numGrass2; i++) {
+    elements.push({ ...positions[i], type: "grass2" });
+  }
+
+  return elements;
+}
 
 export function drawRocksAndFlowers(gameBoard, elements) {
   elements.forEach((element) => {
     const { x, y, type } = element;
     const cell = document.createElement("div");
 
-    if (type === "rock") {
-      cell.classList.add("rockCell");
+    if (type === "grass") {
+      cell.classList.add("grassCell");
     } else if (type === "flower") {
       cell.classList.add("flowerCell");
-    } else if (type === "flower2") {
-      cell.classList.add("flower2Cell");
+    } else if (type === "grass2") {
+      cell.classList.add("grass2Cell");
     }
 
     // Set the grid position for the element
