@@ -1,12 +1,17 @@
 import { getInputDirection } from "./input.js";
 
-export const SNAKE_SPEED = 10;
+const SNAKE_SPEED = 10;
+const SNAKE_BODY_CLASS = "snakeBody";
 
-const snakeBody = [{ x: 11, y: 11 }];
+let snakeBody = [{ x: 11, y: 11 }];
+let newSnakeSegments = 0;
 
-let newSegments = 0;
+const headElement = document.getElementById("snakeHead");
+const tailElement = document.getElementById("snakeTail");
 
-export function update() {
+export { SNAKE_SPEED, update, draw, getSnakeHead, expandSnake, onSnake, snakeIntersection };
+
+function update() {
   addSegments();
 
   const inputDirection = getInputDirection();
@@ -18,35 +23,46 @@ export function update() {
   snakeBody[0].y += inputDirection.y;
 }
 
-export function draw(gameBoard) {
-  snakeBody.forEach((segment) => {
-    const snakeElement = document.createElement("div");
-
-    snakeElement.style.gridRowStart = segment.y;
-    snakeElement.style.gridColumnStart = segment.x;
-
-    snakeElement.classList.add("snake");
-
-    gameBoard.appendChild(snakeElement);
+function draw(staticElements, dynamicElements) {
+  snakeBody.forEach((segment, index) => {
+    drawSegment(staticElements, dynamicElements, segment, index);
   });
 }
 
-export function getSnakeHead() {
+function drawSegment(staticElements, dynamicElements, segment, index) {
+  let snakeElement;
+  if (index === 0) {
+    snakeElement = headElement;
+    staticElements.appendChild(snakeElement);
+  } else if (index === snakeBody.length - 1) {
+    snakeElement = tailElement;
+    staticElements.appendChild(snakeElement);
+  } else {
+    snakeElement = document.createElement("div");
+    snakeElement.classList.add(SNAKE_BODY_CLASS);
+    dynamicElements.appendChild(snakeElement);
+  }
+
+  snakeElement.style.gridRowStart = segment.y;
+  snakeElement.style.gridColumnStart = segment.x;
+}
+
+function getSnakeHead() {
   return snakeBody[0];
 }
 
-export function expandSnake(amount) {
-  newSegments += amount;
+function expandSnake(amount) {
+  newSnakeSegments += amount;
 }
 
-export function onSnake(position, { ignoreHead = false } = {}) {
+function onSnake(position, { ignoreHead = false } = {}) {
   return snakeBody.some((segment, index) => {
     if (ignoreHead && index === 0) return false;
     return equalPositions(segment, position);
   });
 }
 
-export function snakeIntersection() {
+function snakeIntersection() {
   return onSnake(snakeBody[0], { ignoreHead: true });
 }
 
@@ -55,9 +71,9 @@ function equalPositions(pos1, pos2) {
 }
 
 function addSegments() {
-  for (let i = 0; i < newSegments; i++) {
+  for (let i = 0; i < newSnakeSegments; i++) {
     snakeBody.push({ ...snakeBody[snakeBody.length - 1] });
   }
 
-  newSegments = 0;
+  newSnakeSegments = 0;
 }

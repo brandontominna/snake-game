@@ -6,6 +6,7 @@ body {
   align-items: center;
   margin: 0;
   background-color: #99D025;
+  z-index: 0;
 }
 
 #game-board {
@@ -15,6 +16,7 @@ body {
   display: grid;
   grid-template-rows: repeat(21, 1fr);
   grid-template-columns: repeat(21, 1fr);
+  overflow: hidden;
 }
 
 .snake {
@@ -82,5 +84,46 @@ z-index: 0;
   z-index: 0;
 }
 
+.snakeBody {
+  background-color: blue;
+  border: 0.25vmin solid black;
+  caret-color: transparent;
+  z-index: 1;
+}
 
+.snakeHead {
+  background-color: black;
+  border: 0.25vmin solid black;
+  caret-color: transparent;
+  z-index: 0;
+}
 
+.snakeTail {
+  background-color: yellow;
+  border: 0.25vmin solid black;
+  caret-color: transparent;
+  z-index: 1;
+}
+
+#dynamic-elements {
+  background-color: #8E9E3E;
+  width: 100vmin;
+  height: 100vmin;
+  display: grid;
+  grid-template-rows: repeat(21, 1fr);
+  grid-template-columns: repeat(21, 1fr);
+}
+
+#static-elements {
+  background-color: #8E9E3E;
+  width: 100vmin;
+  height: 100vmin;
+  display: grid;
+  grid-template-rows: repeat(21, 1fr);
+  grid-template-columns: repeat(21, 1fr);
+}
+
+#static-elements,
+#dynamic-elements {
+  grid-area: 1 / 1 / -1 / -1;
+}

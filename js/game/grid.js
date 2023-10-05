@@ -1,8 +1,8 @@
 const GRID_SIZE = 20;
 
 export function getRandomGridPosition() {
-  const x = Math.floor(Math.random() * (GRID_SIZE - 1)) + 2; // Exclude the first and last columns
-  const y = Math.floor(Math.random() * (GRID_SIZE - 1)) + 2; // Exclude the first and last rows
+  const x = Math.floor(Math.random() * (GRID_SIZE - 1)) + 2; 
+  const y = Math.floor(Math.random() * (GRID_SIZE - 1)) + 2; 
   return { x, y };
 }
 
@@ -18,19 +18,17 @@ export function outsideGrid(position) {
 }
 
 export function drawBorderRows(gameBoard) {
-  // Get the total number of rows and columns in the grid
   const numRows = 21;
   const numCols = 21;
 
   for (let col = 1; col <= numCols; col++) {
     const cell = document.createElement("div");
     cell.classList.add("bottomCell");
-    cell.style.gridRow = `${numRows} / span 1`; // Specify the row position
-    cell.style.gridColumn = `${col} / span 1`; // Specify the column position
+    cell.style.gridRow = `${numRows} / span 1`; 
+    cell.style.gridColumn = `${col} / span 1`; 
     gameBoard.appendChild(cell);
   }
 
-  // Loop through the cells in the top row and change their background color to yellow
   for (let col = 1; col <= numCols; col++) {
     const topCell = document.createElement("div");
     topCell.classList.add("topCell");
@@ -39,7 +37,6 @@ export function drawBorderRows(gameBoard) {
     gameBoard.appendChild(topCell);
   }
 
-  // Loop through the cells in the right column and change their background color to yellow
   for (let row = 2; row < numRows; row++) {
     const rightCell = document.createElement("div");
     rightCell.classList.add("rightCell");
@@ -48,7 +45,6 @@ export function drawBorderRows(gameBoard) {
     gameBoard.appendChild(rightCell);
   }
 
-  // Loop through the cells in the left column and change their background color to yellow
   for (let row = 2; row < numRows; row++) {
     const leftCell = document.createElement("div");
     leftCell.classList.add("leftCell");
@@ -72,17 +68,14 @@ export function createElements(numGrass, numFlowers, numGrass2) {
   const elements = [];
   const positions = [];
 
-  // Generate all possible positions
   for (let x = 2; x <= GRID_SIZE; x++) {
     for (let y = 2; y <= GRID_SIZE; y++) {
       positions.push({ x, y });
     }
   }
 
-  // Randomize the order of the positions
   shuffleArray(positions);
 
-  // Add elements at the first n positions
   for (let i = 0; i < numGrass; i++) {
     elements.push({ ...positions[i], type: "grass" });
   }
@@ -109,11 +102,9 @@ export function drawRocksAndFlowers(gameBoard, elements) {
       cell.classList.add("grass2Cell");
     }
 
-    // Set the grid position for the element
     cell.style.gridRow = `${y} / span 1`;
     cell.style.gridColumn = `${x} / span 1`;
 
-    // Append the element to the game board
     gameBoard.appendChild(cell);
   });
 }

@@ -11,10 +11,13 @@ import { update as updateFood, draw as drawFood } from "./food.js";
 import { outsideGrid, drawBorderRows, drawRocksAndFlowers, createElements } from "./grid.js";
 
 let lastRenderTime = 0;
-const gameBoard = document.getElementById("game-board");
+const staticElements = document.getElementById("static-elements");
+const dynamicElements = document.getElementById("dynamic-elements");
 let gameIsOver = false;
 
 const environmentElements = createElements(50, 15, 50)
+
+drawBorderRows(staticElements);
 
 function gameLoop(currentTime) {
   if (gameIsOver) {
@@ -43,14 +46,13 @@ function updateGame() {
 }
 
 function renderGame() {
-  gameBoard.innerHTML = "";
-
-  drawFood(gameBoard);
-  drawSnake(gameBoard);
-  drawBorderRows(gameBoard);
-  drawRocksAndFlowers(gameBoard, environmentElements);
+  dynamicElements.innerHTML = "";
+  drawFood(dynamicElements);
+  drawSnake(staticElements, dynamicElements);
+  drawRocksAndFlowers(dynamicElements, environmentElements);
 }
 
 function checkGameOver() {
   gameIsOver = outsideGrid(getSnakeHead()) || snakeIntersection();
 }
+
