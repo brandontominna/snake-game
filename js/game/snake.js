@@ -9,18 +9,10 @@ let newSnakeSegments = 0;
 const headElement = document.getElementById("snakeHead");
 const tailElement = document.getElementById("snakeTail");
 
-export {
-  SNAKE_SPEED,
-  update,
-  draw,
-  getSnakeHead,
-  expandSnake,
-  onSnake,
-  snakeIntersection,
-};
+export { SNAKE_SPEED, update, draw, getSnakeHead, expandSnake, onSnake, snakeIntersection };
 
-// draw and update functions subject to change as the snake body needs unqiue styles
-// when it curves, each direction needs a unique curve style and detection to apply the style
+// snake and update function subject to change, 
+// need to add specific styles depending on curves and for each curve directions
 
 function update() {
   addSegments();
@@ -66,7 +58,7 @@ function expandSnake(amount) {
   newSnakeSegments += amount;
 }
 
-// function to determine if snake is on itself,
+// function to determine if snake is on itself, 
 // object type added as a argument in order to ignore the head otherwise will constantly return true
 function onSnake(position, { ignoreHead = false } = {}) {
   return snakeBody.some((segment, index) => {
@@ -83,7 +75,7 @@ function equalPositions(pos1, pos2) {
   return pos1.x === pos2.x && pos1.y === pos2.y;
 }
 
-// adds segments by pushing onto the last element in the snake body
+// adds segments by pushing onto the last element in the snake body 
 // snake segments variable reset to 0 in order to prevent endless appends
 function addSegments() {
   for (let i = 0; i < newSnakeSegments; i++) {

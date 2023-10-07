@@ -27,8 +27,16 @@ const GRASS_STILL_COUNT = 50
 
 const staticElements = document.getElementById("static-elements");
 const dynamicElements = document.getElementById("dynamic-elements");
+const yellowCircle = document.getElementById('yellow-circle')
+const gameModal = document.getElementById('game-modal')
 
 const environmentElements = createElements(GRASS_GIF_COUNT, FLOWER_COUNT, GRASS_STILL_COUNT)
+
+yellowCircle.addEventListener('click', () => {
+  gameModal.classList.add('visible')
+  document.body.classList.add('game-active')
+  window.requestAnimationFrame(gameLoop)
+})
 
 function gameLoop(currentTime) {
   if (gameIsOver) {
@@ -70,4 +78,3 @@ function checkGameOver() {
 
 // border function called once 
 drawBorderRows(staticElements);
-window.requestAnimationFrame(gameLoop);

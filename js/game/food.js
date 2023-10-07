@@ -12,7 +12,7 @@ export function update() {
     expandSnake(EXPANSION_RATE);
     food = getRandomFoodPosition();
     const foodElement = document.getElementById("food");
-    foodElement.style.backgroundImage = `url('../images/meme.gif?${Math.random()}')`;
+    foodElement.style.backgroundImage = `url('../images/chicken2.gif?${Math.random()}')`;
   }
 }
 
