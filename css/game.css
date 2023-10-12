@@ -4,7 +4,13 @@
 
 body {
   margin: 0;
+  padding: 0;
+  background-image: url("../images/jungle.gif");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   overflow: hidden;
+  background-position: center;
+  background-size: cover;
 }
 
 #yellow-circle {
@@ -26,20 +32,15 @@ body {
 }
 
 #game-modal.visible {
-  /* visible when the class 'visible' is added */
   display: block;
-}
-
-#game-board::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("../images/farm.png");
-  filter: blur(20px);
-  z-index: -1;
+  backdrop-filter: blur(
+    10px
+  ); /* Adjust the pixel value to control the amount of blur */
+  position: fixed; /* Position it fixed to cover the entire screen */
+  top: 0; /* Position it at the top */
+  left: 0; /* Position it at the left */
+  width: 100%; /* Make it cover the full width */
+  height: 100%; /* Make it cover the full height */
 }
 
 #game-board {
@@ -61,7 +62,7 @@ body {
 /* Static Element Styles */
 
 #static-elements {
-  background-color: #8e9e3e;
+  background-color: #0e7c44;
   width: 100vmin;
   height: 100vmin;
   display: grid;
@@ -70,7 +71,7 @@ body {
 }
 
 .food {
-  background-image: url("../images/chicken.gif");
+  background-image: url("../images/monkeyT.gif");
   background-size: cover;
   z-index: 3;
 }
@@ -86,42 +87,17 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   z-index: 1;
-}
+} 
 
-/* Static Border Styles (Rendered Once) */
 
-.bottomCell {
-  background-image: url("../images/newfenceH.png");
-  background-color: #8e9e3e;
-  background-size: cover; /* Scale the image to cover the entire cell */
-  z-index: 1;
-}
 
-.topCell {
-  background-image: url("../images/newfenceH.png");
-  background-color: #8e9e3e;
-  background-size: cover; /* Scale the image to cover the entire cell */
-  z-index: 1;
-}
-
-.rightCell {
-  background-image: url("../images/newFenceV.png");
-  background-color: #8e9e3e;
-  background-size: cover; /* Scale the image to cover the entire cell */
-  z-index: 1;
-}
-
-.leftCell {
-  background-image: url("../images/newFenceV.png");
-  background-color: #8e9e3e;
-  background-size: cover; /* Scale the image to cover the entire cell */
-  z-index: 1;
-}
 
 /* Dynamic Element Styles */
-
 #dynamic-elements {
-  background-color: #8e9e3e;
+  background: 
+    radial-gradient(circle at 30% 30%, #0E7C44 0%, transparent 50%),
+    radial-gradient(circle at 70% 50%, #006C24 0%, transparent 50%),
+    radial-gradient(circle at 50% 70%, #003642 0%, black 120%);
   width: 100vmin;
   height: 100vmin;
   display: grid;
@@ -138,19 +114,20 @@ body {
 /* Grass and Flower Styles (Dynamic so far) */
 
 .grassCell {
-  background-image: url("../images/grass.gif");
+  background-image: url("../images/xx.gif");
   background-size: cover;
+  background-repeat: no-repeat;
   z-index: 0;
 }
 
 .flowerCell {
-  background-image: url("../images/flower1.gif");
+  background-image: url("../images/grassback.jpg");
   background-size: cover;
   z-index: 0;
 }
 
 .grass2Cell {
-  background-image: url("../images/grass2.png");
+  background-image: url("../images/grassback.jpg");
   background-size: cover;
   transform: scaleX(-1);
   z-index: 0;

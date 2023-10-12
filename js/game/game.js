@@ -21,9 +21,9 @@ import {
 let lastRenderTime = 0;
 let gameIsOver = false;
 
-const GRASS_GIF_COUNT = 50
-const FLOWER_COUNT = 15
-const GRASS_STILL_COUNT = 50
+const GRASS_GIF_COUNT = 40
+const FLOWER_COUNT = 0
+const GRASS_STILL_COUNT = 0
 
 const staticElements = document.getElementById("static-elements");
 const dynamicElements = document.getElementById("dynamic-elements");
@@ -35,6 +35,7 @@ const environmentElements = createElements(GRASS_GIF_COUNT, FLOWER_COUNT, GRASS_
 yellowCircle.addEventListener('click', () => {
   gameModal.classList.add('visible')
   document.body.classList.add('game-active')
+  yellowCircle.style.display = 'none'; 
   window.requestAnimationFrame(gameLoop)
 })
 
