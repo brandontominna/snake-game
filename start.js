@@ -2,6 +2,6 @@
 let menuButton = document.getElementById('startButton')
 
 menuButton.addEventListener('click', () => {
-    window.location.href = 'pages/menu.html'
+    window.location.href = './menuPage/menu.html'
 })
 

@@ -1,0 +1,153 @@
+/* Global Styles */
+* {
+  caret-color: transparent;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: url("../../images/pageBackgrounds/jungle.gif") no-repeat center / cover fixed;
+}
+
+/* Game Elements */
+#yellow-circle {
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
+
+#game-modal {
+  display: none;
+}
+
+#game-modal.visible {
+  display: block;
+  backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#game-board {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  z-index: 1;
+}
+
+/* Game Grid */
+#static-elements,
+#dynamic-elements {
+  grid-area: 1 / 1 / -1 / -1;
+}
+
+#static-elements,
+#dynamic-elements {
+  width: 100vmin;
+  height: 100vmin;
+  display: grid;
+  grid-template: repeat(21, 1fr) / repeat(21, 1fr);
+}
+
+#dynamic-elements {
+  background: 
+  radial-gradient(circle at 30% 30%, #0E7C44 0%, transparent 50%),
+  radial-gradient(circle at 70% 50%, #0E7C44 0%, transparent 50%),
+  radial-gradient(circle at 50% 70%, #003642 0%, black 120%);  
+  width: 100vmin;
+  height: 100vmin;
+  display: grid;
+  grid-template: repeat(21, 1fr) / repeat(21, 1fr);
+}
+
+
+
+.cell {
+  background-color: transparent;
+  border: 0.5px solid black;
+  z-index: 0;
+}
+
+
+.food {
+  background: url("../../images/gridImages/monkey.gif") no-repeat center / cover;
+  z-index: 3;
+}
+
+.leaf1Cell,
+.leaf2Cell,
+.leaf3Cell,
+.leaf4Cell {
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 1;
+}
+
+.leaf1Cell {
+  background-image: url("../../images/gridImages/leaf.png");
+  rotate: 90deg;
+}
+
+.leaf2Cell {
+  background-image: url('../../images/gridImages/leaf2.png');
+  rotate: 180deg;
+}
+
+
+.leaf3Cell {
+  background-image: url('../../images/gridImages/leaf.png');
+  rotate: 270deg;
+}
+
+.leaf4Cell {
+  background-image: url('../../images/gridImages/leaf2.png');
+}
+
+.banana1Cell, .banana2Cell {
+  background-image: url("../../images/gridImages/bannana.png");
+  background-size: 40%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.banana2Cell {
+  rotate: 90deg;
+}  
+
+
+/* Snake Styles */
+.snakeHead,
+.snakeTail,
+.snakeBody {
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 3;
+}
+
+.snakeHead {
+  background-image: url("../../images/snakeImages/snakeheadT.png");
+  background-size: cover;
+}
+
+.snakeTail {
+  background-image: url("../../images/snakeImages/snakeTailT.png");
+  background-size: contain;
+}
+
+.snakeBody {
+  background-image: url("../../images/snakeImages/snakeBodyT.png");
+  background-size: cover;
+}

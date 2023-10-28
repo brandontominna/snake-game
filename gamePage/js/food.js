@@ -1,29 +1,32 @@
 import { onSnake, expandSnake } from "./snake.js";
 import { getRandomGridPosition } from "./grid.js";
 
-let food = getRandomFoodPosition();
 const EXPANSION_RATE = 1;
+const foodElement = document.getElementById("food");
 
-// function to detect if snake eats the food
-// unique URL with random query string is added to the food
-// this is in order to prevent the brower from storing the gif in its memory/cache
+let food = getRandomFoodPosition();
+
+// Function to detect if snake eats the food
 export function update() {
   if (onSnake(food)) {
     expandSnake(EXPANSION_RATE);
     food = getRandomFoodPosition();
-    const foodElement = document.getElementById("food");
-    foodElement.style.backgroundImage = `url('../images/monkeyT2.gif?${Math.random()}')`;
+    updateFoodElement()
   }
 }
 
-const foodElement = document.getElementById("food");
+function updateFoodElement() {
+  foodElement.style.backgroundImage = `url('../images/gridImages/monkey2.gif?${Math.random()}')`;
+}
 
+// Function to render the food styles
 export function draw(gameBoard) {
   foodElement.style.gridRowStart = food.y;
   foodElement.style.gridColumnStart = food.x;
   gameBoard.appendChild(foodElement);
 }
 
+// Function to randomly generate a new food position
 function getRandomFoodPosition() {
   let newFoodPosition = { x: 15, y: 15 };
 

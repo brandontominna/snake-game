@@ -1,0 +1,182 @@
+*::after {
+  will-change: transform;
+}
+
+/* Bush Classes */
+.leftBush1, .leftBush2, .leftBush3, .leftBush4,
+.rightBush1, .rightBush2, .rightBush3, .rightBush4 {
+  background-image: url("../../images/borderImages/vine.png");
+  background-size: 100%;
+  rotate: 90deg;
+  position: relative;
+}
+
+.bottomBush1, .bottomBush2, .bottomBush3, .bottomBush4,
+.topBush1, .topBush2, .topBush3, .topBush4 {
+  background-image: url("../../images/borderImages/vine.png");
+  background-size: 100%;
+  position: relative;
+}
+
+/* Bush Classes with Flowers */
+.leftBush1::after, .rightBush1::after, .bottomBush1::after, .topBush1::after,
+.leftBush3::after, .rightBush3::after, .bottomBush3::after, .topBush3::after,
+.leftBush4::after, .rightBush4::after, .bottomBush4::after, .topBush4::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.leftBush1::after, .rightBush1::after, .bottomBush1::after, .topBush1::after {
+  background-image: url("../../images/borderImages/purpleFlower.png");
+  background-size: 60%;
+}
+
+.leftBush3::after, .rightBush3::after, .bottomBush3::after, .topBush3::after {
+  background-image: url("../../images/borderImages/orangeFlower.png");
+  background-size: 50%;
+}
+
+.leftBush4::after, .rightBush4::after, .bottomBush4::after, .topBush4::after {
+  background-image: url("../../images/borderImages/pinkFlower.png");
+  background-size: 55%;
+}
+
+/* Middle Cells of Each Border Side */
+.middleLeft, .middleRight {
+  position: relative;
+  background-image: url("../../images/borderImages/vine.png");
+  background-size: 95%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(90deg);
+}
+
+.middleLeft::after, .middleRight::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../images/borderImages/monsteraLeaf.gif");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.middleLeft::after {
+  transform: rotate(90deg) scaleY(-1);
+}
+
+.middleRight::after {
+  rotate: 270deg;
+}
+
+.middleTop, .middleBottom {
+  background-image: url("../../images/borderImages/vine.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Corner Cells */ 
+.topLeftCorner, .topRightCorner, .bottomLeftCorner, .bottomRightCorner {
+  background-image: url("../../images/borderImages/raffelsia.png");
+  background-size: 105%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Top Corner Cells */
+.topLeftAdjacentRow, .topRightAdjacentRow {
+  background-image: url("../../images/borderImages/vine.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+
+.topLeftAdjacentColumn, .topRightAdjacentColumn {
+  background-image: url("../../images/borderImages/vine.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  transform: rotate(90deg);
+}
+
+.topLeftAdjacentRow::after, .topLeftAdjacentColumn::after, 
+.topRightAdjacentRow::after, .topRightAdjacentColumn::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../images/borderImages/blueFlower.png");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.topLeftAdjacentRow::after {
+  rotate: 270deg;
+}
+
+.topLeftAdjacentColumn::after {
+  transform: rotate(90deg) scaleY(-1);
+}
+
+.topRightAdjacentRow::after {
+  transform: rotate(90deg) scaleX(-1);
+}
+
+.topRightAdjacentColumn::after {
+  rotate: 270deg;
+}
+
+/* Bottom Corner Cells */
+.bottomLeftAdjacentRow, .bottomRightAdjacentColumn {
+  background-image: url("../../images/borderImages/vine.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  rotate: 90deg;
+  position: relative;
+}
+
+.bottomRightAdjacentRow, .bottomLeftAdjacentColumn {
+  background-image: url("../../images/borderImages/vine.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+
+.bottomLeftAdjacentRow::after, .bottomLeftAdjacentColumn::after,
+.bottomRightAdjacentRow::after, .bottomRightAdjacentColumn::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../images/borderImages/blueFlower.png");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bottomLeftAdjacentRow::after {
+  transform: rotate(90deg);
+}
+
+.bottomLeftAdjacentColumn::after {
+  transform: rotate(90deg) scaleY(-1);
+}
+
+.bottomRightAdjacentRow::after {
+  transform: rotate(90deg);
+}
+
+.bottomRightAdjacentColumn::after {
+  transform: rotate(270deg) scaleY(-1);
+}

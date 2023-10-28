@@ -12,5 +12,5 @@ for(let i = 0; i <= 10; i++) {
 let gameButton = document.getElementById('gameButton')
 
 gameButton.addEventListener('click', () => {
-    window.location.href = './game.html'
+    window.location.href = '../gamePage/game.html'
 })

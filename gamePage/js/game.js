@@ -13,28 +13,30 @@ import {
 
 import { 
   outsideGrid, 
-  drawBorderRows, 
-  drawGrassAndFlowers, 
-  createElements 
+  drawGrid
 } from "./grid.js";
+
+import {
+  drawBorders
+} from './borders.js'
+
+import {
+  createElements, 
+  drawFlowers, 
+  flowerData
+} from './flowers.js'
+
 
 let lastRenderTime = 0;
 let gameIsOver = false;
-
-const GRASS_GIF_COUNT = 40
-const FLOWER_COUNT = 0
-const GRASS_STILL_COUNT = 0
 
 const staticElements = document.getElementById("static-elements");
 const dynamicElements = document.getElementById("dynamic-elements");
 const yellowCircle = document.getElementById('yellow-circle')
 const gameModal = document.getElementById('game-modal')
 
-const environmentElements = createElements(GRASS_GIF_COUNT, FLOWER_COUNT, GRASS_STILL_COUNT)
-
 yellowCircle.addEventListener('click', () => {
   gameModal.classList.add('visible')
-  document.body.classList.add('game-active')
   yellowCircle.style.display = 'none'; 
   window.requestAnimationFrame(gameLoop)
 })
@@ -63,19 +65,21 @@ function update() {
   checkGameOver();
 }
 
-// render function with dynamic and static elements so that the board clearing 
-// does not effect the static elements
-// for now grass and flowers are rendered dynamically 
+// render function with dynamic and static elements so that the board clearing does not effect static elements
 function render() {
   dynamicElements.innerHTML = "";
   drawFood(dynamicElements);
   drawSnake(staticElements, dynamicElements);
-  drawGrassAndFlowers(dynamicElements, environmentElements);
 }
 
 function checkGameOver() {
   gameIsOver = outsideGrid(getSnakeHead()) || snakeIntersection();
 }
 
-// border function called once 
-drawBorderRows(staticElements);
+// borders and grid called once
+drawBorders(staticElements);
+drawGrid(staticElements)
+
+// flower generation called once
+const environmentElements = createElements(flowerData)
+drawFlowers(staticElements, environmentElements);
