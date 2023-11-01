@@ -1,0 +1,86 @@
+
+/* Styles for the snake head */
+.snakeHead-right {
+  background-color: red;
+}
+
+.snakeHead-left {
+  background-color: blue;
+}
+
+.snakeHead-up {
+  background-color: green;
+}
+
+.snakeHead-down {
+  background-color: yellow;
+}
+
+/* Styles for the snake body */
+.snakeBody-right {
+  background-color: orange;
+}
+
+.snakeBody-left {
+  background-color: purple;
+}
+
+.snakeBody-up {
+  background-color: pink;
+}
+
+.snakeBody-down {
+  background-color: brown;
+}
+
+/* Styles for the snake tail */
+.snakeTail-right {
+  background-color: cyan;
+}
+
+.snakeTail-left {
+  background-color: magenta;
+}
+
+.snakeTail-up {
+  background-color: lime;
+}
+
+.snakeTail-down {
+  background-color: maroon;
+}
+
+/* Styles for the snake body curves */
+
+/* Styles for the snake body curves */
+.snakeBody-up-to-left {
+  background-color: #FF6347; /* Tomato */
+}
+
+.snakeBody-up-to-right {
+  background-color: #FF4500; /* OrangeRed */
+}
+
+.snakeBody-down-to-left {
+  background-color: #DA70D6; /* Orchid */
+}
+
+.snakeBody-down-to-right {
+  background-color: #EE82EE; /* Violet */
+}
+
+.snakeBody-left-to-up {
+  background-color: #ADFF2F; /* GreenYellow */
+}
+
+.snakeBody-left-to-down {
+  background-color: #7FFF00; /* Chartreuse */
+}
+
+.snakeBody-right-to-up {
+  background-color: #40E0D0; /* Turquoise */
+}
+
+.snakeBody-right-to-down {
+  background-color: #00CED1; /* DarkTurquoise */
+}

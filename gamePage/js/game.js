@@ -69,7 +69,7 @@ function update() {
 function render() {
   dynamicElements.innerHTML = "";
   drawFood(dynamicElements);
-  drawSnake(staticElements, dynamicElements);
+  drawSnake(dynamicElements);
 }
 
 function checkGameOver() {

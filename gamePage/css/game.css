@@ -51,10 +51,6 @@ body {
 #static-elements,
 #dynamic-elements {
   grid-area: 1 / 1 / -1 / -1;
-}
-
-#static-elements,
-#dynamic-elements {
   width: 100vmin;
   height: 100vmin;
   display: grid;
@@ -66,26 +62,21 @@ body {
   radial-gradient(circle at 30% 30%, #0E7C44 0%, transparent 50%),
   radial-gradient(circle at 70% 50%, #0E7C44 0%, transparent 50%),
   radial-gradient(circle at 50% 70%, #003642 0%, black 120%);  
-  width: 100vmin;
-  height: 100vmin;
-  display: grid;
-  grid-template: repeat(21, 1fr) / repeat(21, 1fr);
 }
 
-
-
+/* Cell Styles */
 .cell {
   background-color: transparent;
   border: 0.5px solid black;
   z-index: 0;
 }
 
-
 .food {
   background: url("../../images/gridImages/monkey.gif") no-repeat center / cover;
   z-index: 3;
 }
 
+/* Leaf Styles */
 .leaf1Cell,
 .leaf2Cell,
 .leaf3Cell,
@@ -106,7 +97,6 @@ body {
   rotate: 180deg;
 }
 
-
 .leaf3Cell {
   background-image: url('../../images/gridImages/leaf.png');
   rotate: 270deg;
@@ -116,7 +106,9 @@ body {
   background-image: url('../../images/gridImages/leaf2.png');
 }
 
-.banana1Cell, .banana2Cell {
+/* Banana Styles */
+.banana1Cell, 
+.banana2Cell {
   background-image: url("../../images/gridImages/bannana.png");
   background-size: 40%;
   background-repeat: no-repeat;
@@ -126,28 +118,3 @@ body {
 .banana2Cell {
   rotate: 90deg;
 }  
-
-
-/* Snake Styles */
-.snakeHead,
-.snakeTail,
-.snakeBody {
-  background-repeat: no-repeat;
-  background-position: center;
-  z-index: 3;
-}
-
-.snakeHead {
-  background-image: url("../../images/snakeImages/snakeheadT.png");
-  background-size: cover;
-}
-
-.snakeTail {
-  background-image: url("../../images/snakeImages/snakeTailT.png");
-  background-size: contain;
-}
-
-.snakeBody {
-  background-image: url("../../images/snakeImages/snakeBodyT.png");
-  background-size: cover;
-}
