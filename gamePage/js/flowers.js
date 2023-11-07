@@ -18,7 +18,7 @@ function shuffleArray(array) {
   }
 }
 
-// Function to create the actual elements and their positions
+// Function to create the elements and their positions
 export function createElements(flowers) {
   const elements = [];
   const positions = [];
@@ -43,7 +43,7 @@ export function createElements(flowers) {
   return elements;
 }
 
-// Map of flower types to CSS classes
+// Map of flower types CSS classes
 const flowerClassMap = {
   leaf1: "leaf1Cell",
   leaf2: "leaf2Cell",

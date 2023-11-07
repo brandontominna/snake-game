@@ -3,15 +3,23 @@ import { getInputDirection } from "./input.js";
 const SNAKE_SPEED = 10;
 
 let snakeBody = [
-  { x: 11, y: 11, dir: { x: 0, y: 0 } }, // head
-  { x: 10, y: 11, dir: { x: 0, y: 0 } }, // body
-  { x: 9, y: 11, dir: { x: 0, y: 0 } },  // body
-  { x: 8, y: 11, dir: { x: 0, y: 0 } }   // tail
+  { x: 11, y: 11, dir: { x: 1, y: 0 } }, // head
+  { x: 10, y: 11, dir: { x: 1, y: 0 } }, // body
+  { x: 9, y: 11, dir: { x: 1, y: 0 } }, // body
+  { x: 8, y: 11, dir: { x: 1, y: 0 } }, // tail
 ];
 
 let newSnakeSegments = 0;
 
-export { SNAKE_SPEED, update, draw, getSnakeHead, expandSnake, onSnake, snakeIntersection };
+export {
+  SNAKE_SPEED,
+  update,
+  draw,
+  getSnakeHead,
+  expandSnake,
+  onSnake,
+  snakeIntersection,
+};
 
 function update() {
   addSegments();
@@ -20,7 +28,7 @@ function update() {
   // Only runs when the direction changes
   if (inputDirection.x !== 0 || inputDirection.y !== 0) {
     for (let i = snakeBody.length - 2; i >= 0; i--) {
-      snakeBody[i + 1] = { ...snakeBody[i], dir: snakeBody[i].dir };
+      snakeBody[i + 1] = { ...snakeBody[i] };
     }
 
     snakeBody[0].x += inputDirection.x;
@@ -51,7 +59,7 @@ function drawSegment(dynamicElements, segment, index) {
     let prevDirectionClass = getDirectionClass(prevSegment.dir);
     if (directionClass !== prevDirectionClass) {
       // The snake has made a turn, add a specific class
-      directionClass += '-to-' + prevDirectionClass;
+      directionClass += "-to-" + prevDirectionClass;
     }
   }
 
@@ -59,7 +67,10 @@ function drawSegment(dynamicElements, segment, index) {
   if (index === 0) {
     snakeElement.classList.add("snakeHead-" + directionClass);
   } else if (index === snakeBody.length - 1) {
-    snakeElement.classList.add("snakeTail-" + directionClass);
+    // For the tail, determine the direction based off the previous segment
+    let prevSegment = snakeBody[index - 1];
+    let prevDirectionClass = getDirectionClass(prevSegment.dir);
+    snakeElement.classList.add("snakeTail-" + prevDirectionClass);
   } else {
     snakeElement.classList.add("snakeBody-" + directionClass);
   }
@@ -76,26 +87,9 @@ function getDirectionClass(dir) {
   } else if (dir.y < 0) {
     return "up";
   } else {
-    return 'right'
+    return "right";
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function getSnakeHead() {
   return snakeBody[0];

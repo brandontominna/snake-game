@@ -1,86 +1,97 @@
-
 /* Styles for the snake head */
+.snakeHead-right,
+.snakeHead-left,
+.snakeHead-up,
+.snakeHead-down {
+  background-image: url('../../images/snakeImages/snakeHead.png');
+  background-size: 170%;
+  background-position: 55% 25%;
+  z-index: 5;
+}
+
 .snakeHead-right {
-  background-color: red;
+  rotate: 270deg;
 }
 
 .snakeHead-left {
-  background-color: blue;
+  rotate: 90deg;
 }
 
 .snakeHead-up {
-  background-color: green;
+  rotate: 180deg;
 }
 
-.snakeHead-down {
-  background-color: yellow;
-}
 
 /* Styles for the snake body */
-.snakeBody-right {
-  background-color: orange;
+.snakeBody-right,
+.snakeBody-left,
+.snakeBody-up,
+.snakeBody-down {
+  background-image: url("../../images/snakeImages/snakeBody.jpg");
+  background-repeat: no-repeat;
+  background-size: 410%;
+  z-index: 4;
 }
 
 .snakeBody-left {
-  background-color: purple;
+  transform: scaleX(-1);
 }
 
 .snakeBody-up {
-  background-color: pink;
+  rotate: 180deg;
 }
 
 .snakeBody-down {
-  background-color: brown;
+  rotate: 90deg;
 }
 
 /* Styles for the snake tail */
+.snakeTail-right, .snakeTail-left, .snakeTail-up, .snakeTail-down {
+  background-image: url('../../images/snakeImages/snakeTail.png');
+  background-size: 170%;
+  background-position: 55% 25%;
+  z-index: 4;
+}
+
 .snakeTail-right {
-  background-color: cyan;
+  rotate: 90deg;
 }
 
 .snakeTail-left {
-  background-color: magenta;
-}
-
-.snakeTail-up {
-  background-color: lime;
+  rotate: 270deg;
 }
 
 .snakeTail-down {
-  background-color: maroon;
+  rotate: 180deg;
 }
 
 /* Styles for the snake body curves */
-
-/* Styles for the snake body curves */
-.snakeBody-up-to-left {
-  background-color: #FF6347; /* Tomato */
-}
-
-.snakeBody-up-to-right {
-  background-color: #FF4500; /* OrangeRed */
-}
-
-.snakeBody-down-to-left {
-  background-color: #DA70D6; /* Orchid */
-}
-
-.snakeBody-down-to-right {
-  background-color: #EE82EE; /* Violet */
-}
-
-.snakeBody-left-to-up {
-  background-color: #ADFF2F; /* GreenYellow */
-}
-
-.snakeBody-left-to-down {
-  background-color: #7FFF00; /* Chartreuse */
-}
-
-.snakeBody-right-to-up {
-  background-color: #40E0D0; /* Turquoise */
-}
-
+.snakeBody-up-to-left,
+.snakeBody-up-to-right,
+.snakeBody-down-to-left,
+.snakeBody-down-to-right,
+.snakeBody-left-to-up,
+.snakeBody-left-to-down,
+.snakeBody-right-to-up,
 .snakeBody-right-to-down {
-  background-color: #00CED1; /* DarkTurquoise */
+  background-image: url('../../images/snakeImages/snakeCurved.png');
+  background-size: cover;
+  background-position: 20% center;
+  background-repeat: no-repeat;
+  z-index: 4;
+}
+
+.snakeBody-up-to-right,
+.snakeBody-left-to-down {
+  rotate: 270deg;
+}
+
+.snakeBody-down-to-left,
+.snakeBody-right-to-up {
+  rotate: 90deg;
+}
+
+.snakeBody-down-to-right,
+.snakeBody-left-to-up {
+  rotate: 180deg;
 }
