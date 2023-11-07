@@ -21,7 +21,6 @@
   rotate: 180deg;
 }
 
-
 /* Styles for the snake body */
 .snakeBody-right,
 .snakeBody-left,
@@ -46,7 +45,10 @@
 }
 
 /* Styles for the snake tail */
-.snakeTail-right, .snakeTail-left, .snakeTail-up, .snakeTail-down {
+.snakeTail-right, 
+.snakeTail-left, 
+.snakeTail-up, 
+.snakeTail-down {
   background-image: url('../../images/snakeImages/snakeTail.png');
   background-size: 170%;
   background-position: 55% 25%;

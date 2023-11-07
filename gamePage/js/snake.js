@@ -1,26 +1,20 @@
 import { getInputDirection } from "./input.js";
 
+// Define the speed of the snake
 const SNAKE_SPEED = 10;
 
+// Initialize the snake body
 let snakeBody = [
-  { x: 11, y: 11, dir: { x: 1, y: 0 } }, // head
-  { x: 10, y: 11, dir: { x: 1, y: 0 } }, // body
-  { x: 9, y: 11, dir: { x: 1, y: 0 } }, // body
-  { x: 8, y: 11, dir: { x: 1, y: 0 } }, // tail
+  { x: 11, y: 11, dir: { x: 1, y: 0 } }, // Head
+  { x: 10, y: 11, dir: { x: 1, y: 0 } }, // Body
+  { x: 9, y: 11, dir: { x: 1, y: 0 } }, // Body
+  { x: 8, y: 11, dir: { x: 1, y: 0 } }, // Tail
 ];
 
+// Initialize the new snake segments
 let newSnakeSegments = 0;
 
-export {
-  SNAKE_SPEED,
-  update,
-  draw,
-  getSnakeHead,
-  expandSnake,
-  onSnake,
-  snakeIntersection,
-};
-
+// Function to update the snake's position
 function update() {
   addSegments();
 
@@ -37,12 +31,14 @@ function update() {
   }
 }
 
+// Function to draw the snake
 function draw(dynamicElements) {
   snakeBody.forEach((segment, index) => {
     drawSegment(dynamicElements, segment, index);
   });
 }
 
+// Function to draw a segment of the snake
 function drawSegment(dynamicElements, segment, index) {
   let snakeElement = document.createElement("div");
   dynamicElements.appendChild(snakeElement);
@@ -91,10 +87,12 @@ function getDirectionClass(dir) {
   }
 }
 
+// Function to get the head of the snake
 function getSnakeHead() {
   return snakeBody[0];
 }
 
+// Function to expand the snake
 function expandSnake(amount) {
   newSnakeSegments += amount;
 }
@@ -107,19 +105,31 @@ function onSnake(position, { ignoreHead = false } = {}) {
   });
 }
 
+// Function to determine if the snake hits itself at the head
 function snakeIntersection() {
   return onSnake(snakeBody[0], { ignoreHead: true });
 }
 
+// Function to check if two positions are equal
 function equalPositions(pos1, pos2) {
   return pos1.x === pos2.x && pos1.y === pos2.y;
 }
 
-// Function to add segments to the snake
+// Function to add new segments to the snake
 function addSegments() {
   for (let i = 0; i < newSnakeSegments; i++) {
     snakeBody.push({ ...snakeBody[snakeBody.length - 1] });
   }
-
   newSnakeSegments = 0;
 }
+
+// Export the necessary functions and constants
+export {
+  SNAKE_SPEED,
+  update,
+  draw,
+  getSnakeHead,
+  expandSnake,
+  onSnake,
+  snakeIntersection,
+};

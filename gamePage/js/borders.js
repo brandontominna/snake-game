@@ -1,3 +1,4 @@
+// Constants for rows and columns
 const numRows = 21;
 const numCols = 21;
 
@@ -47,10 +48,21 @@ function createCell(row, col, cellType) {
     cell.classList.add(specialCellType);
   } else {
     cell.classList.add(cellType);
+    // Check if the cellType exists in the bushClasses object
     if (bushClasses[cellType]) {
-      const bushClass = bushClasses[cellType].classes[bushClasses[cellType].counter];
-      bushClasses[cellType].counter = (bushClasses[cellType].counter + 1) % 4;
-      if (bushClass) cell.classList.add(bushClass);
+      // Get the current counter for this cellType
+      const currentCounter = bushClasses[cellType].counter;
+
+      // Get the class name based on the current counter
+      const bushClass = bushClasses[cellType].classes[currentCounter];
+
+      // Increment the counter and ensure it stays within the range of 0 to 3
+      bushClasses[cellType].counter = (currentCounter + 1) % 4;
+
+      // If a class name was successfully retrieved, add it to the cell's class list
+      if (bushClass) {
+        cell.classList.add(bushClass);
+      }
     }
   }
 

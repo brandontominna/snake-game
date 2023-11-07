@@ -1,13 +1,13 @@
 const GRID_SIZE = 20;
 
-// Data passed into the create elements function, object with types and quantity 
+// Flower data map with class types and quantities
 export const flowerData = [
-  { type: 'leaf1', quantity: 5 },
-  { type: 'leaf2', quantity: 5 },
-  { type: 'leaf3', quantity: 10 },
-  { type: 'leaf4', quantity: 10  },
-  { type: 'banana1', quantity: 10}, 
-  { type: 'banana2', quantity: 10}
+  { type: "leaf1", quantity: 5 },
+  { type: "leaf2", quantity: 5 },
+  { type: "leaf3", quantity: 10 },
+  { type: "leaf4", quantity: 10 },
+  { type: "banana1", quantity: 10 },
+  { type: "banana2", quantity: 10 },
 ];
 
 // Function to randomly generate positions
@@ -23,7 +23,7 @@ export function createElements(flowers) {
   const elements = [];
   const positions = [];
 
-  // Generate all positions
+  // Generate all positions **
   for (let x = 2; x <= GRID_SIZE; x++) {
     for (let y = 2; y <= GRID_SIZE; y++) {
       positions.push({ x, y });
@@ -36,7 +36,7 @@ export function createElements(flowers) {
   flowers.forEach((flower) => {
     for (let i = 0; i < flower.quantity; i++) {
       elements.push({ ...positions[index], type: flower.type });
-      index++
+      index++;
     }
   });
 

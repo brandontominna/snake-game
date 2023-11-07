@@ -37,6 +37,7 @@ body {
   height: 100%;
 }
 
+/* Game Board */
 #game-board {
   min-height: 100vh;
   width: 100vw;
@@ -71,6 +72,7 @@ body {
   z-index: 0;
 }
 
+/* Food Styles */
 .food {
   background: url("../../images/gridImages/monkey.gif") no-repeat center / cover;
   z-index: 3;
@@ -117,4 +119,4 @@ body {
 
 .banana2Cell {
   rotate: 90deg;
-}  
+}
