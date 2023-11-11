@@ -1,0 +1,101 @@
+/* Styles for the snake head */
+.snakeHead-right,
+.snakeHead-left,
+.snakeHead-up,
+.snakeHead-down {
+  background-image: url('../../images/snakeImages/snakeHead.png');
+  background-size: 170%;
+  background-position: 55% 25%;
+  background-repeat: no-repeat;
+  z-index: 5;
+}
+
+.snakeHead-right {
+  rotate: 270deg;
+}
+
+.snakeHead-left {
+  rotate: 90deg;
+}
+
+.snakeHead-up {
+  rotate: 180deg;
+}
+
+/* Styles for the snake body */
+.snakeBody-right,
+.snakeBody-left,
+.snakeBody-up,
+.snakeBody-down {
+  background-image: url("../../images/snakeImages/snakeBody.jpg");
+  background-repeat: no-repeat;
+  background-size: 410%;
+  z-index: 4;
+}
+
+.snakeBody-left {
+  transform: scaleX(-1);
+}
+
+.snakeBody-up {
+  rotate: 180deg;
+}
+
+.snakeBody-down {
+  rotate: 90deg;
+}
+
+/* Styles for the snake tail */
+.snakeTail-right, 
+.snakeTail-left, 
+.snakeTail-up, 
+.snakeTail-down {
+  background-image: url('../../images/snakeImages/snakeTail.png');
+  background-size: 170%;
+  background-position: 55% 25%;
+  background-repeat: no-repeat;
+  z-index: 4;
+}
+
+.snakeTail-right {
+  rotate: 90deg;
+}
+
+.snakeTail-left {
+  rotate: 270deg;
+}
+
+.snakeTail-down {
+  rotate: 180deg;
+}
+
+/* Styles for the snake body curves */
+.snakeBody-up-to-left,
+.snakeBody-up-to-right,
+.snakeBody-down-to-left,
+.snakeBody-down-to-right,
+.snakeBody-left-to-up,
+.snakeBody-left-to-down,
+.snakeBody-right-to-up,
+.snakeBody-right-to-down {
+  background-image: url('../../images/snakeImages/snakeCurved.png');
+  background-size: cover;
+  background-position: 20% center;
+  background-repeat: no-repeat;
+  z-index: 4;
+}
+
+.snakeBody-up-to-right,
+.snakeBody-left-to-down {
+  rotate: 270deg;
+}
+
+.snakeBody-down-to-left,
+.snakeBody-right-to-up {
+  rotate: 90deg;
+}
+
+.snakeBody-down-to-right,
+.snakeBody-left-to-up {
+  rotate: 180deg;
+}
